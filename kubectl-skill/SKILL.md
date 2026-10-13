@@ -7,7 +7,6 @@ metadata:
   version: "1.0.0"
   keywords: "kubernetes,k8s,container,docker,deployment,pods,cluster"
 compatibility: Requires kubectl binary (v1.20+) and active kubeconfig connection to a Kubernetes cluster. Works on macOS, Linux, and Windows (WSL).
-user-invokable: true
 ---
 
 # kubectl Skill
@@ -50,7 +49,6 @@ yum install -y kubectl      # RHEL/CentOS
 kubectl version --client
 kubectl cluster-info  # Test connection
 ```
-```
 
 ## Essential Commands
 
@@ -60,7 +58,7 @@ kubectl get pods                    # List all pods in current namespace
 kubectl get pods -A                 # All namespaces
 kubectl get pods -o wide            # More columns
 kubectl get nodes                   # List nodes
-kubectl describe pod POD_NAME       # Detailed info with events
+kubectl describe pod POD_NAME        # Detailed info with events
 ```
 
 ### View Logs
@@ -97,7 +95,6 @@ kubectl rollout undo deployment/APP                # Rollback
 kubectl config view                  # Show kubeconfig
 kubectl config get-contexts          # List contexts
 kubectl config use-context CONTEXT   # Switch context
-```
 ```
 
 ## Common Patterns
@@ -144,7 +141,6 @@ kubectl drain NODE_NAME --ignore-daemonsets
 # 3. Bring back online
 kubectl uncordon NODE_NAME
 ```
-```
 
 ## Output Formats
 
@@ -164,9 +160,9 @@ kubectl get pods -o json | jq '.items[0].metadata.name'
 kubectl get pods -o jsonpath='{.items[*].metadata.name}'
 kubectl get pods -o custom-columns=NAME:.metadata.name,STATUS:.status.phase
 ```
-```
 
 ## Global Flags (Available to All Commands)
+
 ```bash
 -n, --namespace=<ns>           # Operate in specific namespace
 -A, --all-namespaces           # Operate across all namespaces
@@ -176,7 +172,6 @@ kubectl get pods -o custom-columns=NAME:.metadata.name,STATUS:.status.phase
 -l, --selector=<labels>        # Filter by labels
 --field-selector=<selector>    # Filter by fields
 -v, --v=<int>                  # Verbosity level (0-9)
-```
 ```
 
 ## Dry-Run Modes
@@ -188,7 +183,6 @@ kubectl get pods -o custom-columns=NAME:.metadata.name,STATUS:.status.phase
 **Always test with `--dry-run=client` first:**
 ```bash
 kubectl apply -f manifest.yaml --dry-run=client
-```
 ```
 
 ## Advanced Topics
@@ -224,15 +218,14 @@ For detailed reference material, command-by-command documentation, troubleshooti
    ```bash
    kubectl delete pod POD_NAME --dry-run=client
    ```
-```
 
 ## Getting Help
+
 ```bash
 kubectl help                      # General help
 kubectl COMMAND --help            # Command help
 kubectl explain pods              # Resource documentation
 kubectl explain pods.spec         # Field documentation
-```
 ```
 
 ## Environment Variables
@@ -246,3 +239,9 @@ kubectl explain pods.spec         # Field documentation
 - [kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 - [Kubernetes API Reference](https://kubernetes.io/docs/reference/generated/kubernetes-api/)
 - [Agent Skills Specification](https://agentskills.io/)
+
+---
+
+**Version:** 1.0.0  
+**License:** MIT  
+**Compatible with:** kubectl v1.20+, Kubernetes v1.20+
