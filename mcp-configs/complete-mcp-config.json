@@ -1,0 +1,53 @@
+{
+  "mcpServers": {
+    "gopls-mcp-server": {
+      "command": "/home/reak/go/bin/gopls",
+      "args": ["mcp"],
+      "env": {}
+    },
+    "postgres": {
+      "command": "/home/reak/git/cobra-go/app/.kilo/scripts/run-postgres-mcp.sh",
+      "args": [],
+      "env": {}
+    },
+    "typesense": {
+      "command": "/home/reak/git/cobra-go/app/.kilo/scripts/run-typesense-mcp.sh",
+      "args": [],
+      "env": {}
+    },
+    "playwright": {
+      "command": "/home/reak/git/cobra-go/app/.kilo/scripts/run-playwright-mcp.sh",
+      "args": [],
+      "env": {}
+    },
+    "kubectl": {
+      "command": "npx",
+      "args": ["-y", "mcp-server-kubernetes"],
+      "env": {
+        "KUBECONFIG": "/home/reak/Downloads/div/vke-59f26ce4-2ab1-48cf-9bf0-30a2e21afcd7.yaml"
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/home/reak"],
+      "env": {}
+    },
+    "google-kubernetes-engine": {
+      "serverUrl": "https://container.googleapis.com/mcp",
+      "authProviderType": "google_credentials"
+    },
+    "ZohoMCP": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://cliqqq-939313492.zohomcp.com/mcp/b15c0199dc27ac287174013b14669856/message",
+        "--transport",
+        "http-only"
+      ]
+    },
+    "runpod": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.getrunpod.io/"]
+    }
+  }
+}
